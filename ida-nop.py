@@ -10,7 +10,6 @@
 #
 #---------------------------------------------------------------------
 from idaapi import *
-import binascii
 import sark
 
 
