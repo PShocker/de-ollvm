@@ -51,7 +51,7 @@ class MyDbgHook(DBG_Hooks):
                 idc.print_insn_mnem(start).startswith('cmov'):
                 continue
             add_bpt(end,0,BPT_SOFT)
-            while start<block.end_ea:
+            while start<block.end_ea:   #对retn下断点
                 if idc.print_insn_mnem(start).startswith('ret'):
                     add_bpt(start,0,BPT_SOFT)
                     break
