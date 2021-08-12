@@ -10,7 +10,6 @@
 #
 #---------------------------------------------------------------------
 from idaapi import *
-import sark
 
 
 fun_offset=0x25d0
@@ -42,8 +41,7 @@ class MyDbgHook(DBG_Hooks):
                 # 高亮该block
                 start=block.start_ea
                 while start<block.end_ea:
-                    line=sark.line.Line(start)
-                    line.color=0x00ffff
+                    set_color(start, CIC_ITEM, 0x00ffff)
                     start=idc.next_head(start)
             else:
                 # 说明没有执行,直接nop掉
